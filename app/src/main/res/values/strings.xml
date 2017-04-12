@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TakeAndSelectPhoto</string>
+    <string name="selectPhoto">选择照片</string>
+    <string name="takePhoto">拍照</string>
+</resources>
