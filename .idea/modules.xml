@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TakeAndSelectPhoto.iml" filepath="$PROJECT_DIR$/TakeAndSelectPhoto.iml" />
+      <module fileurl="file://G:\MrHanWork\uploadGit\TakeAndSelectPhoto\TakeAndSelectPhoto.iml" filepath="G:\MrHanWork\uploadGit\TakeAndSelectPhoto\TakeAndSelectPhoto.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://G:\MrHanWork\uploadGit\TakeAndSelectPhoto\app\app.iml" filepath="G:\MrHanWork\uploadGit\TakeAndSelectPhoto\app\app.iml" />
     </modules>
   </component>
 </project>

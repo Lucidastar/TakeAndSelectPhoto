@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mImageNew;
     private Uri imageUri;
     public static final int TAKE_PHOTO = 2;
-
     private static final int PICK_IMAGE_REQUEST = 1;
 
     @Override
@@ -51,23 +50,22 @@ public class MainActivity extends AppCompatActivity {
     public void takePhoto(View view) {
         //6.0以上要进行动态权限的判断
         //创建file对象，用于存储拍照后的图片
-        File outputImage = new File(getExternalCacheDir(),"out_put.jpg");
+        File outputImage = new File(getExternalCacheDir(), "out_put.jpg");
         try {
-
-            if (outputImage.exists()){
+            if (outputImage.exists()) {
                 outputImage.delete();
             }
             outputImage.createNewFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (Build.VERSION.SDK_INT >= 24){
-            imageUri = FileProvider.getUriForFile(this,"com.example.cameraalbumtest.fileprovider",outputImage);
-        }else {
+        if (Build.VERSION.SDK_INT >= 24) {
+            imageUri = FileProvider.getUriForFile(this, "com.example.cameraalbumtest.fileprovider", outputImage);
+        } else {
             imageUri = Uri.fromFile(outputImage);
         }
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(intent, TAKE_PHOTO);
     }
 
@@ -80,17 +78,14 @@ public class MainActivity extends AppCompatActivity {
             }
             try {
                 String picturePath = null;
-
-                    picturePath = PhotoUtils.getImagePath(this,data);
-
+                picturePath = PhotoUtils.getImagePath(this, data);
                 Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
                 mImageOld.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                 //=======================
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if (requestCode == TAKE_PHOTO && resultCode == RESULT_OK){
+        } else if (requestCode == TAKE_PHOTO && resultCode == RESULT_OK) {
             try {
                 Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
                 mImageNew.setImageBitmap(bitmap);
